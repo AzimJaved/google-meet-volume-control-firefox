@@ -1,25 +1,37 @@
 {
-    "update_url": "https://clients2.google.com/service/update2/crx",
-
+    "browser_specific_settings": {
+        "gecko": {
+          "id": "google-meet-volume-control@azimjaved",
+          "strict_min_version": "42.0"
+        }
+      },
     "manifest_version": 2,
-
     "name": "Google Meet Volume Control",
     "short_name": "Meet Volume",
     "description": "Allows adjustment of Google Meet volume",
     "version": "1.1.1",
-
-    "permissions": ["storage", "background", "declarativeContent"],
+    "permissions": [
+        "storage",
+        "background"
+    ],
     "background": {
-        "scripts": ["background.js"]
+        "scripts": [
+            "background.js"
+        ]
     },
-    "page_action": {
+    "browser_action": {
+        "default_icon": "views/icon/icon.png",
         "default_title": "Google Meet Volume Control",
         "default_popup": "views/popup.html"
     },
     "content_scripts": [
         {
-            "matches": ["*://meet.google.com/*"],
-            "js": ["meet.js"]
+            "matches": [
+                "*://meet.google.com/*"
+            ],
+            "js": [
+                "meet.js"
+            ]
         }
     ]
 }
